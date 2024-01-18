@@ -41,11 +41,18 @@ body {
     .accordion {
       background: none;
 
+      .accordion-body {
+        padding: 5px;
+      }
 
       .accordion-item {
         background: #282a36;
         border: none;
         padding: 10px 20px;
+
+        &:not(:last-child) {
+          border-bottom: 0.5px solid #f3e1e1;
+        }
       }
 
       h2 {
@@ -109,13 +116,13 @@ body {
 
       li {
         color: #fff;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        font-size: 15px;
+        font-size: 14px;
+        line-height: 1.5;
+        display: grid;
+        grid-template-columns: auto 20px;
 
         &:not(:last-child) {
-          margin-bottom: 5px;
+          margin-bottom: 10px;
         }
 
       }
