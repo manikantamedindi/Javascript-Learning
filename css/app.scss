@@ -1,24 +1,31 @@
 body {
-  padding: 0;
+  background: #202228 url("/Images/diagonal-stripes-010.png");
+  color: #989eae;
+  font-size: 14px;
   margin: 0;
-  background: #232529;
+  padding: 15px 0 30px;
+}
+
+.page_wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  border: 1px solid #454545;
+
 }
 
 .c-navbar {
   border-bottom: 1px solid #454545;
-  background: #0d0d0d;
   position: relative;
+  padding: 20px;
 
   h1 {
-    position: absolute;
-    right: 30px;
-    bottom: 10px;
     color: #ffff;
-    font-size: 1.5em;
-    text-transform: uppercase;
-    background: linear-gradient(to bottom, #30CFD0 0%, #330867 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 2em;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
   }
 
   img {
@@ -30,25 +37,31 @@ body {
 
 .dashboard-container {
   display: grid;
-  grid-template-columns: 350px auto;
+  grid-template-columns: 300px auto;
   overflow: hidden;
 
   .left-container {
     height: 100vh;
     border-right: 1px solid #454545;
-    padding: 40px;
+    padding: 10px;
 
     .accordion {
       background: none;
 
+      .accordion-header {
+        padding: 8px 20px;
+      }
+
       .accordion-body {
-        padding: 5px;
+        padding: 0;
+        max-height: 600px;
+        overflow-y: auto;
       }
 
       .accordion-item {
         background: #282a36;
         border: none;
-        padding: 10px 20px;
+        padding: 0;
 
         &:not(:last-child) {
           border-bottom: 0.5px solid #f3e1e1;
@@ -89,18 +102,19 @@ body {
     .tick {
       position: relative;
       display: inline-block;
-      width: 20px;
-      height: 20px;
+      width: 15px;
+      height: 15px;
       border: 2px solid #2ecc71;
       /* Change this to the desired color */
       border-radius: 3px;
       margin-left: 10px;
+      margin-bottom: -3px;
     }
 
     .tick::before {
       content: '\2713';
       /* Unicode checkmark character */
-      font-size: 14px;
+      font-size: 10px;
       color: #2ecc71;
       /* Same color as the border */
       position: absolute;
@@ -112,14 +126,12 @@ body {
     .sub-list {
       list-style: disc;
       margin: 0;
-      padding: 0;
+      padding: 10px 30px;
 
       li {
         color: #fff;
         font-size: 14px;
         line-height: 1.5;
-        display: grid;
-        grid-template-columns: auto 20px;
 
         &:not(:last-child) {
           margin-bottom: 10px;
@@ -132,7 +144,9 @@ body {
   }
 
   .right-container {
-    padding: 40px;
+    padding: 10px;
+    max-height: 600px;
+    overflow-y: auto;
 
     .each_code {
       background: #282A36 !important;

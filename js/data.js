@@ -137,7 +137,7 @@ const App = new Vue({
         list: [
           {
             name: "EP-01 | How JavaScript Works 🔥& Execution Context",
-            completed: false,
+            completed: true,
           },
           {
             name: "EP-02 | How JavaScript Code is executed? ❤️& Call Stack",
