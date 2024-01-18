@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Javascript</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/app.css">
+  </head>
+  <body>
+
+    <div id="page-banner">
+      <img src="/images/banenr.png" alt="">
+      <div class="website-link">
+        <a href="https://www.javascripttutorial.net/" target="_blank">
+          <img src="/images/website.png" alt="">
+        </a>
+      </div>
+    </div>
+
+    <div id="app">
+      <section id="topics">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="accordion" id="accordionPanelsStayOpenExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                      aria-controls="panelsStayOpen-collapseOne">
+                      Accordion Item #1
+                    </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                    <div class="accordion-body">
+                      <strong>This is the first item's accordion body.</strong> It is shown by default, until the
+                      collapse plugin adds the appropriate classes that we use to style each element. These classes
+                      control the overall appearance, as well as the showing and hiding via CSS transitions. You can
+                      modify any of this with custom CSS or overriding our default variables. It's also worth noting
+                      that just about any HTML can go within the <code>.accordion-body</code>, though the transition
+                      does limit overflow.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                      aria-controls="panelsStayOpen-collapseTwo">
+                      Accordion Item #2
+                    </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the
+                      collapse plugin adds the appropriate classes that we use to style each element. These classes
+                      control the overall appearance, as well as the showing and hiding via CSS transitions. You can
+                      modify any of this with custom CSS or overriding our default variables. It's also worth noting
+                      that just about any HTML can go within the <code>.accordion-body</code>, though the transition
+                      does limit overflow.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                      aria-controls="panelsStayOpen-collapseThree">
+                      Accordion Item #3
+                    </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                      <strong>This is the third item's accordion body.</strong> It is hidden by default, until the
+                      collapse plugin adds the appropriate classes that we use to style each element. These classes
+                      control the overall appearance, as well as the showing and hiding via CSS transitions. You can
+                      modify any of this with custom CSS or overriding our default variables. It's also worth noting
+                      that just about any HTML can go within the <code>.accordion-body</code>, though the transition
+                      does limit overflow.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="each-topic sticky">
+                <h3>Page Index</h3>
+                <ul id="progress">
+                  <li v-for="(item,index) in topics" :key="index">
+                    <div class="node green"></div>
+                    <a :href='"#" + item.id'><span>{{item.id}}.</span>
+                      {{item.name}}
+                      <span class="completed-status" v-if="item.completed">
+                        <img src="/images/right.png" alt="">
+                      </span>
+                    </a>
+                    <span class="priority" v-if="item.priority">{{item.priority}}</span>
+                    <div>
+                      <div class="divider grey"></div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div :id="item.id" class="each-topic" v-for="(item,index) in topics" :key="index">
+                <h3><span>{{item.id}}.</span> {{item.name}} <span class="priority"
+                    v-if="item.priority">{{item.priority}}</span></h3>
+                <ul id="progress">
+                  <li v-for="(item,index) in item.list" :key="index">
+                    <div class="node green"></div>
+                    <a :href=item.link target="_blank">{{item.name}}</a>
+                    <span class="completed-status" v-if="item.completed">
+                      <img src="/images/right.png" alt="">
+                    </span>
+                    <div>
+                      <div class="divider grey"></div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      const App = new Vue({
+        el: '#app',
+        data: {
+          showMobileMenu: false,
+          topics: [{
+              id: 1,
+              name: "Fundamentals",
+              list: [{
+                name: "Syntax",
+                link: "/Fundamentals/index.html",
+                completed: "yes"
+              }, {
+                name: "variables",
+                link: "/Fundamentals/index.html",
+                completed: "yes"
+              }, {
+                name: "Data Types",
+                link: "#"
+              }, {
+                name: "Numbers",
+                link: "#"
+              }, {
+                name: "Numeric separator",
+                link: "#"
+              }, {
+                name: "Octal & binary literals",
+                link: "#"
+              }, {
+                name: "Boolean",
+                link: "#"
+              }, {
+                name: "String",
+                link: "#"
+              }, {
+                name: "Object",
+                link: "#"
+              }, {
+                name: "Primitive vs. reference values",
+                link: "#"
+              }, {
+                name: "Array ",
+                link: "#"
+              }, ]
+            },
+            {
+              id: 2,
+              name: "Operators",
+              list: [{
+                name: "Arithmetic operators ",
+                link: "#"
+              }, {
+                name: "Remainder operator ",
+                link: "#"
+              }, {
+                name: "Assignment operators",
+                link: "#"
+              }, {
+                name: "Unary operators",
+                link: "#"
+              }, {
+                name: "Comparison operators",
+                link: "#"
+              }, {
+                name: "Logical operators",
+                link: "#"
+              }, {
+                name: "Logical assignment operators",
+                link: "#"
+              }, {
+                name: "Nullish coalescing operator",
+                link: "#"
+              }, {
+                name: "Exponentiation operator",
+                link: "#"
+              }]
+            },
+            {
+              id: 3,
+              name: "Control flow Statements",
+              priority: "high",
+              list: [{
+                name: "if",
+                link: "/chapter_03/index.html",
+                completed: "yes"
+              }, {
+                name: "if...else",
+                link: "/chapter_03/index.html",
+                completed: "yes"
+              }, {
+                name: "if..else..if",
+                link: "/chapter_03/index.html",
+                completed: "yes"
+              }, {
+                name: "Ternary operator",
+                link: "/chapter_03/index.html",
+                completed: "yes"
+              }, {
+                name: "Object Spread",
+                link: "/chapter_03/index.html",
+              }, {
+                name: "switch",
+                link: "/chapter_03/index.html"
+              }, {
+                name: "while",
+                link: "/chapter_03/index.html"
+              }, {
+                name: "do..while",
+                link: "/chapter_03/index.html"
+              }, {
+                name: "for loop",
+                link: "/chapter_03/index.html"
+              }, {
+                name: "break",
+                link: "/chapter_03/index.html"
+              }, {
+                name: "continue",
+                link: "/chapter_03/index.html"
+              }, {
+                name: "comma operator",
+                link: "/chapter_03/index.html"
+              }, ]
+            },
+            {
+              id: 4,
+              name: "Functions",
+              priority: "high",
+              list: [{
+                name: "functions",
+                link: "#"
+              }, {
+                name: "functions with first-class citizens",
+                link: "#"
+              }, {
+                name: "Anonymous functions",
+                link: "#"
+              }, {
+                name: "Pass-by-value functions",
+                link: "#"
+              }, {
+                name: "Recursive functions",
+                link: "#"
+              }, {
+                name: "Defaults Parameters",
+                link: "#"
+              }]
+            },
+            {
+              id: 5,
+              name: "Objects & Prototypes",
+              list: [{
+                  name: "Object Methods",
+                  link: "#"
+                }, {
+                  name: "Constructor functions",
+                  link: "#"
+                }, {
+                  name: "Prototypal inheritance",
+                  link: "#"
+                }, {
+                  name: "What is this in javascript",
+                  link: "#"
+                }, {
+                  name: "global this",
+                  link: "#"
+                }, {
+                  name: "Object properties",
+                  link: "#"
+                }, {
+                  name: "for..in loop",
+                  link: "#"
+                }, {
+                  name: "Enumerable Properties",
+                  link: "#"
+                }, {
+                  name: "Own Properties",
+                  link: "#"
+                }, {
+                  name: "Object.values()",
+                  link: "#"
+                },
+                {
+                  name: "Object.entries()",
+                  link: "#"
+                }, {
+                  name: "Object.assign() ",
+                  link: "#"
+                }, {
+                  name: "Object.is()",
+                  link: "#"
+                }, {
+                  name: "Factory functions",
+                  link: "#"
+                }, {
+                  name: "Object Destructuring",
+                  link: "#"
+                }, {
+                  name: "Optional chaining operator",
+                  link: "#"
+                },
+                {
+                  name: "Object literal syntax extensions",
+                  link: "#"
+                }
+              ]
+            },
+            {
+              id: 6,
+              name: "Classes",
+              list: [{
+                name: "Class",
+                link: "#"
+              }, {
+                name: "Getters and Setters",
+                link: "#"
+              }, {
+                name: "Class Expression",
+                link: "#"
+              }, {
+                name: "Computed property",
+                link: "#"
+              }, {
+                name: "Inheritance",
+                link: "#"
+              }, {
+                name: "new.target",
+                link: "#"
+              }, {
+                name: "Static methods",
+                link: "#"
+              }, {
+                name: "Static Properties",
+                link: "#"
+              }, {
+                name: "Private Fields",
+                link: "#"
+              }, {
+                name: "Private Methods",
+                link: "#"
+              }, ]
+            },
+            {
+              id: 7,
+              name: "Advanced Functions",
+              priority: "high",
+              list: [{
+                  name: "Function Type",
+                  link: "#"
+                }, {
+                  name: "call()",
+                  link: "#"
+                }, {
+                  name: "apply()",
+                  link: "#"
+                }, {
+                  name: "bind()",
+                  link: "#"
+                }, {
+                  name: "closure",
+                  link: "#"
+                }, {
+                  name: "Immediately Invoked Function Expression (IIFE) ",
+                  link: "#"
+                }, {
+                  name: "Returning multiple values",
+                  link: "#"
+                }, {
+                  name: "Arrow functions",
+                  link: "#"
+                }, {
+                  name: "Arrow functions: when you should not use",
+                  link: "#"
+                }, {
+                  name: "Rest parameter",
+                  link: "#"
+                },
+                {
+                  name: "Callback functions",
+                  link: "#"
+                },
+              ]
+            }, {
+              id: 8,
+              name: "Promises & Async/Await",
+              priority: "high",
+              list: [{
+                name: "Promises",
+                link: "#"
+              }, {
+                name: "Promise chaining",
+                link: "#"
+              }, {
+                name: "Promise composition",
+                link: "#"
+              }, {
+                name: "Promise.any()",
+                link: "#"
+              }, {
+                name: "Promise.allSettled()",
+                link: "#"
+              }, {
+                name: "Promise.prototype.finally()",
+                link: "#"
+              }, {
+                name: "Promise error handling ",
+                link: "#"
+              }, {
+                name: "async / await",
+                link: "#"
+              }, ]
+            }, {
+              id: 9,
+              name: "Iterators & Generators",
+              list: [{
+                name: "Iterators",
+                link: "#"
+              }, {
+                name: "Generators",
+                link: "#"
+              }, {
+                name: "yield",
+                link: "#"
+              }, {
+                name: "for…of",
+                link: "#"
+              }, {
+                name: "Asynchronous iterators",
+                link: "#"
+              }, {
+                name: "Async generators",
+                link: "#"
+              }, ]
+            },
+            {
+              id: 10,
+              name: "Modules",
+              list: [{
+                name: "Modules ",
+                link: "#"
+              }, {
+                name: "Dynamic import ",
+                link: "#"
+              }, {
+                name: "Top-level await",
+                link: "#"
+              }, ]
+            },
+            {
+              id: 11,
+              name: "Symbol",
+              list: [{
+                name: "Symbol ",
+                link: "#"
+              }, ]
+            },
+            {
+              id: 12,
+              name: "Collections",
+              list: [{
+                name: "Map",
+                link: "#"
+              }, {
+                name: "Set",
+                link: "#"
+              }, ]
+            },
+            {
+              id: 13,
+              name: "Error handling",
+              list: [{
+                name: "try…catch",
+                link: "#"
+              }, {
+                name: "try…catch…finally",
+                link: "#"
+              }, {
+                name: "throw",
+                link: "#"
+              }, {
+                name: "Optional catch binding",
+                link: "#"
+              }, ]
+            },
+            {
+              id: 14,
+              name: "JavaScript var, let, and const",
+              list: [{
+                name: "let",
+                link: "#"
+              }, {
+                name: "let vs var",
+                link: "#"
+              }, {
+                name: "const",
+                link: "#"
+              }, ]
+            },
+            {
+              id: 15,
+              name: " Proxy & Reflection",
+              list: [{
+                name: "Proxy",
+                link: "#"
+              }, {
+                name: "Reflection",
+                link: "#"
+              }, ]
+            },
+            {
+              id: 15,
+              name: "JavaScript Runtime",
+              list: [{
+                  name: "Execution Contexts",
+                  link: "#"
+                }, {
+                  name: "Call Stack",
+                  link: "#"
+                }, {
+                  name: "Event Loop",
+                  link: "#"
+                }, {
+                  name: "Hoisting",
+                  link: "#"
+                },
+                {
+                  name: "Variable scopes",
+                  link: "#"
+                },
+              ]
+            },
+            {
+              id: 16,
+              name: "Primitive wrapper types",
+              list: [{
+                  name: "Primitive wrapper types ",
+                  link: "#"
+                }, {
+                  name: "Boolean ",
+                  link: "#"
+                }, {
+                  name: "Number ",
+                  link: "#"
+                }, {
+                  name: "BigInt",
+                  link: "#"
+                },
+                {
+                  name: "String type",
+                  link: "#"
+                },
+              ]
+            },
+            {
+              id: 17,
+              name: "JavaScript Array Methods",
+              priority: "high",
+              list: [{
+                  name: "Array properties",
+                  link: "#"
+                }, {
+                  name: "Adding / removing elements",
+                  link: "#"
+                }, {
+                  name: "Finding elements",
+                  link: "#"
+                }, {
+                  name: "High-order methods",
+                  link: "#"
+                },
+                {
+                  name: "Manipulating Arrays",
+                  link: "#"
+                },
+                {
+                  name: "Creating Arrays",
+                  link: "#"
+                }, {
+                  name: "Flattening arrays",
+                  link: "#"
+                }, {
+                  name: "Arrays to Strings",
+                  link: "#"
+                }, {
+                  name: "Advanced Operations",
+                  link: "#"
+                },
+                {
+                  name: "Accesing elements",
+                  link: "#"
+                },
+                {
+                  name: "Multidimensional Array",
+                  link: "#"
+                },
+              ]
+            },
+            {
+              id: 18,
+              name: "JavaScript String Methods",
+              list: [{
+                  name: "Searching",
+                  link: "#"
+                }, {
+                  name: "Trimming",
+                  link: "#"
+                }, {
+                  name: "Padding",
+                  link: "#"
+                }, {
+                  name: "Extracting",
+                  link: "#"
+                },
+                {
+                  name: "Concatenating & interpolating",
+                  link: "#"
+                },
+                {
+                  name: "Replacing",
+                  link: "#"
+                }, {
+                  name: "Changing cases",
+                  link: "#"
+                },
+              ]
+            },
+            {
+              id: 19,
+              name: "JavaScript DOM",
+              priority: "high",
+              list: [{
+                  name: "Getting started",
+                  link: "#"
+                }, {
+                  name: "Selecting elements",
+                  link: "#"
+                }, {
+                  name: "Traversing elements",
+                  link: "#"
+                }, {
+                  name: "Manipulating elements",
+                  link: "#"
+                },
+                {
+                  name: "Working with Attributes",
+                  link: "#"
+                },
+                {
+                  name: "Manipulating Element’s Styles",
+                  link: "#"
+                }, {
+                  name: "Working with Events",
+                  link: "#"
+                },
+                {
+                  name: "Scripting Web Forms",
+                  link: "#"
+                },
+              ]
+            },
+            {
+              id: 20,
+              name: "JavaScript BOM",
+              list: [{
+                  name: "Window",
+                  link: "#"
+                }, {
+                  name: "Location",
+                  link: "#"
+                }, {
+                  name: "Navigator",
+                  link: "#"
+                }, {
+                  name: "Screen",
+                  link: "#"
+                },
+                {
+                  name: "History",
+                  link: "#"
+                },
+              ]
+            },
+            {
+              id: 21,
+              name: "Web API",
+              priority: "high",
+              list: [{
+                  name: "Client Storage",
+                  link: "#"
+                }, {
+                  name: "FormData API",
+                  link: "#"
+                }, {
+                  name: "Drag-and-Drop API",
+                  link: "#"
+                }, {
+                  name: "Geolocation API",
+                  link: "#"
+                },
+                {
+                  name: "Canvas API",
+                  link: "#"
+                },
+                {
+                  name: "History API",
+                  link: "#"
+                },
+                {
+                  name: "Network Requests",
+                  link: "#"
+                },
+              ]
+            },
+            {
+              id: 22,
+              name: "ES6",
+              priority: "high",
+              list: [{
+                  name: "New ES6 syntax",
+                  link: "#"
+                }, {
+                  name: "Destructuring",
+                  link: "#"
+                }, {
+                  name: "ES6 Modules",
+                  link: "#"
+                }, {
+                  name: "ES6 Classes",
+                  link: "#"
+                },
+                {
+                  name: "Arrow Functions",
+                  link: "#"
+                },
+                {
+                  name: "Symbol",
+                  link: "#"
+                },
+                {
+                  name: "Iterators & Generators",
+                  link: "#"
+                },
+                {
+                  name: "Promises",
+                  link: "#"
+                }, {
+                  name: "ES6 collections",
+                  link: "#"
+                }, {
+                  name: "Array extensions",
+                  link: "#"
+                }, {
+                  name: "Object extensions",
+                  link: "#"
+                },
+                {
+                  name: "String extensions",
+                  link: "#"
+                },
+                {
+                  name: "Proxy & Reflection",
+                  link: "#"
+                },
+              ]
+            },
+          ]
+        },
+        methods: {
+          myFilter: function () {
+            this.isActive = !this.isActive;
+          }
+        },
+      })
+    </script>
+  </body>
+</html>

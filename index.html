@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Namaste JavaScript</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" />
+    <link rel="stylesheet" href="/css/prism.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="/favicon-300x300.png">
+    <link rel="stylesheet" href="/css/app.css" />
+  </head>
+  <body>
+
+    <div class="c-navbar">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="logo">
+              <img src="/images.png" alt="logo" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+      <h1>MY Javascript World</h1>
+    </div>
+
+    <div id="app">
+      <div class="dashboard-container">
+        <div class="left-container">
+          <div class="accordion" id="topicsAccordion">
+            <div v-for="(item, index) in topics" :key="index" class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                  :data-bs-target="'#collapse' + index" aria-expanded="true" :aria-controls="'collapse' + index">
+                  <span>{{ item.id }}. {{ item.name }}</span>
+                  <div class="tick" v-if="item.completed"></div>
+                </button>
+              </h2>
+              <div :id="'collapse' + index" class="accordion-collapse collapse" :aria-labelledby="'heading' + index"
+                data-bs-parent="#topicsAccordion">
+                <div class="accordion-body">
+                  <ul class="sub-list">
+                    <li v-for="(item,index) in item.list" :key="index">
+                      {{item.name}}
+                      <div class="tick" v-if="item.completed"></div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /language-javascript line-numbers -->
+        <div class="right-container">
+          <div class="each_code">
+            <p>Array Length</p>
+            <pre><code>let colors = ["red", "green", "blue"];
+console.log("Colors Length" + " " + colors.length);
+// Colors Length 3
+colors.length = 5;
+console.log("Colors Length" + " " + colors);
+// Colors Length red,green,blue,,
+colors.length = 0;
+console.log(colors);
+// Empty
+</code></pre>
+          </div>
+          <div class="each_code">
+            <p>Push()</p>
+            <pre><code>let sectionAStundets = ["mani", "Ravi", "Raju"];
+let sectionBStudents = ["Ram", "Sai", "Kishore"];
+// sectionAStundets.push(sectionBStudents);
+console.log("Overall Students " + " " + sectionAStundets);
+sectionAStundets.push(...sectionBStudents);
+console.log("Overall Students " + " " + sectionAStundets);
+// !Key Notes
+/*
+1. Starting from ES6, you can use the spread operator
+*/
+</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.js'></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      const App = new Vue({
+        el: '#app',
+        data: {
+          showMobileMenu: false,
+          topics: [{
+            id: 1,
+            name: "Arrays",
+            completed: false,
+            list: [{
+                name: "Length Property",
+                completed: true,
+              }, {
+                name: "push()",
+                completed: true,
+              },
+              {
+                name: "unShift()",
+                completed: false,
+              },
+              {
+                name: "pop()",
+                completed: false,
+              },
+              {
+                name: "shift()",
+                completed: false,
+              },
+              {
+
+                name: "splice()",
+                completed: false,
+              },
+              {
+                name: "slice()",
+                completed: false,
+              },
+              {
+                name: "indexOf()",
+                completed: false,
+              },
+              {
+                name: "includes()",
+                completed: false,
+              },
+              {
+                name: "find()",
+                completed: false,
+              },
+              {
+                name: "findIndex()",
+                completed: false,
+              },
+              {
+                name: "map()",
+                completed: false,
+              },
+              {
+                name: "filter()",
+                completed: false,
+              },
+              {
+                name: "reduce()",
+                completed: false,
+              },
+              {
+                name: "every()",
+                completed: false,
+              },
+              {
+                name: "some()",
+                completed: false,
+              },
+              {
+                name: "sort()",
+                completed: false,
+              },
+              {
+                name: "forEach()",
+                completed: false,
+              },
+              {
+                name: "contact()",
+                completed: false,
+              },
+              {
+                name: "of()",
+                completed: false,
+              },
+              {
+                name: "from()",
+                completed: false,
+              },
+              {
+                name: "flat()",
+                completed: false,
+              },
+              {
+                name: "flatMap()",
+                completed: false,
+              },
+              {
+                name: "join()",
+                completed: false,
+              },
+              {
+                name: "Destructuring",
+                completed: false,
+              },
+              {
+                name: "Spread Operator",
+                completed: false,
+              },
+              {
+                name: "at()",
+                completed: false,
+              },
+              {
+                name: "reverse()",
+                completed: false,
+              },
+              {
+                name: "toReverse()",
+                completed: false,
+              },
+              {
+                name: "Multidimensional Array",
+                completed: false,
+              },
+            ]
+          }, ]
+        },
+        methods: {
+          myFilter: function () {
+            this.isActive = !this.isActive;
+          }
+        },
+      })
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Get the accordion element
+        var accordion = document.getElementById('topicsAccordion');
+
+        // Get the offset position of the accordion
+        var sticky = accordion.offsetTop;
+
+        // Add the sticky class to the accordion on scroll
+        window.onscroll = function () {
+          if (window.pageYOffset > sticky) {
+            accordion.classList.add('sticky-accordion');
+          } else {
+            accordion.classList.remove('sticky-accordion');
+          }
+        };
+      });
+    </script>
+    <script src="./js/arrays.js"></script>
+    <script src="./js/map_filder_reduce.js"></script>
+    <script src="./js/app.js"></script>
+
+  </body>
+</html>
