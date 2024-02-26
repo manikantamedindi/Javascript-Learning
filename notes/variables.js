@@ -47,6 +47,6 @@ exampleConst();
 function exampleConst() {
   if (true) {
     const z = 20;
-    console.log(x);
+    console.log(z);
   }
 }

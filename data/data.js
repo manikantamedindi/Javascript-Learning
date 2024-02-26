@@ -4,7 +4,7 @@ const App = new Vue({
     showMobileMenu: false,
     topics: [
       {
-        id: 3,
+        id: 1,
         name: "Operators",
         completed: false,
         list: [
