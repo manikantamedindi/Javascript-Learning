@@ -12,6 +12,11 @@ body {
   border: 1px solid #454545;
 }
 
+.token.comment,
+.token.prolog {
+  white-space: pre-wrap;
+}
+
 .c-navbar {
   border-bottom: 1px solid #454545;
   position: relative;
