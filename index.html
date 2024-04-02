@@ -6,42 +6,33 @@
     <title>JavaScript Learning</title>
     <link rel="icon" type="image/x-icon" href="Images/favicon.png">
     <!-- External CSS Files -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css"
+      integrity="sha512-72McA95q/YhjwmWFMGe8RI3aZIMCTJWPBbV8iQY3jy1z9+bi6+jHnERuNrDPo/WGYEzzNs4WdHNyyEr/yXJ9pA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/prism.css">
     <link rel="stylesheet" href="/css/app.css" />
   </head>
   <body>
     <div class="page_wrap">
-      <div class="c-navbar">
-        <h1>JavaScript Learning</h1>
-        <p>Code your dreams into reality with the brush of JavaScript.</p>
-      </div>
       <div id="app">
         <div class="dashboard-container">
           <div class="left-container">
-            <div class="accordion" id="topicsAccordion">
-              <div v-for="(item, index) in topics" :key="index" class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                    :data-bs-target="'#collapse' + index" aria-expanded="true" :aria-controls="'collapse' + index">
-                    <span>{{ item.id }}. {{ item.name }}</span>
-                    <div class="tick" v-if="item.completed"></div>
-                  </button>
-                </h2>
-                <div :id="'collapse' + index" class="accordion-collapse collapse" :aria-labelledby="'heading' + index"
-                  data-bs-parent="#topicsAccordion">
-                  <div class="accordion-body">
-                    <ul class="sub-list">
-                      <li v-for="(itemList,index) in item.list" :key="index">
-                        <a :href="'#'+item.id +'-'+ index">
-                          {{itemList.name}}
-                          <div class="tick" v-if="itemList.completed"></div>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+            <div class="eachGroup" v-for="(item, index) in topics" :key="index" class="accordion-item">
+              <h2>{{item.name}}</h2>
+              <a href="" v-for="(itemList,index) in item.list" :key="index">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" v-if="itemList.complete">
+                  <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9
+                    0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0
+                    33.9z" fill="#04AA6D" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" v-else>
+                  <path
+                    d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-111 111-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L369 209z"
+                    fill="#333333" />
+                </svg>
+                {{itemList.name}}
+              </a>
             </div>
           </div>
           <!-- /language-javascript line-numbers -->
