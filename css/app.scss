@@ -35,7 +35,7 @@ body {
 
 .dashboard-container {
   display: grid;
-  grid-template-columns: 300px auto;
+  grid-template-columns: 350px auto;
   overflow: hidden;
 
   .left-container {
@@ -47,13 +47,14 @@ body {
 
     .eachGroup {
       &:not(:last-child) {
-        margin-bottom: 30px;
+        margin-bottom: 20px;
       }
 
       h2 {
         color: #282A36;
-        font-size: 1.3em;
+        font-size: 1.5em;
         padding-left: 10px;
+        font-weight: 500;
       }
 
       a {
@@ -107,10 +108,11 @@ body {
     overflow-y: auto;
 
     .each_code {
-      background: #282A36 !important;
+      background: #E6E9EB !important;
       position: relative;
-      border-radius: 4px !important;
+      border-radius: 8px !important;
       margin-bottom: 15px;
+      padding: 40px;
 
       p {
         color: #fff;
@@ -131,7 +133,7 @@ body {
     pre {
       margin: 0 !important;
       background: #282A36 !important;
-      border-radius: 4px !important;
+      border-radius: 8px !important;
     }
   }
 }

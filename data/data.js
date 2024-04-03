@@ -14,38 +14,11 @@ const App = new Vue({
           },
           {
             name: "let",
-            complete: false,
+            complete: true,
           },
           {
             name: "const",
-            complete: false,
-          },
-        ],
-      },
-      {
-        id: 2,
-        name: "Operators",
-        complete: false,
-        list: [
-          {
-            name: "Arthmetic",
-            complete: false,
-          },
-          {
-            name: "Assignment",
-            complete: false,
-          },
-          {
-            name: "Logical",
-            complete: false,
-          },
-          {
-            name: "unary",
-            complete: false,
-          },
-          {
-            name: "Ternary (Conditional)",
-            complete: false,
+            complete: true,
           },
         ],
       },
