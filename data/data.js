@@ -9,14 +9,17 @@ const App = new Vue({
         complete: false,
         list: [
           {
+            id: "variable_var",
             name: "var",
             complete: true,
           },
           {
+            id: "variable_let",
             name: "let",
             complete: true,
           },
           {
+            id: "variable_const",
             name: "const",
             complete: true,
           },
@@ -68,8 +71,9 @@ const App = new Vue({
             complete: false,
           },
           {
+            id: "array_looping",
             name: "Looping Array Elements",
-            complete: false,
+            complete: true,
           },
           {
             name: "Adding Array Elements",

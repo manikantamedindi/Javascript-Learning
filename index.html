@@ -20,7 +20,7 @@
           <div class="left-container">
             <div class="eachGroup" v-for="(item, index) in topics" :key="index" class="accordion-item">
               <h2>{{item.name}}</h2>
-              <a href="" v-for="(itemList,index) in item.list" :key="index">
+              <a :href="'index.html#' + itemList.id" v-for="(itemList,index) in item.list" :key="index">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" v-if="itemList.complete">
                   <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9
                     0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0
@@ -38,7 +38,7 @@
           <!-- /language-javascript line-numbers -->
           <div class="right-container">
 
-            <div class="each_code" id="1-0">
+            <div class="each_code" id="variable_var">
               <p>var Variable</p>
               <pre><code>
 // !Var
@@ -62,7 +62,7 @@ console.log(x);
 }
               </code></pre>
             </div>
-            <div class="each_code" id="1-1">
+            <div class="each_code" id="variable_let">
               <p>let Variable</p>
               <pre><code>
 // ! let
@@ -85,7 +85,7 @@ console.log(x);
 }
               </code></pre>
             </div>
-            <div class="each_code" id="1-2">
+            <div class="each_code" id="variable_const">
               <p>const Variable</p>
               <pre><code>
 // ! const
@@ -133,6 +133,94 @@ console.log("Overall Students " + " " + sectionAStundets);
 */
 </code></pre>
             </div>
+
+            <div class="each_code" id="array_looping">
+              <p>for loop</p>
+              <pre><code>// * for loop
+let schoolNames = [
+  "Maple Elementary School",
+  "Oakridge High School",
+  "Pinecrest Middle School",
+  "Willowbrook Academy",
+  "Sunset Elementary",
+  "Greenwood Middle School",
+  "Riverside High School",
+  "Meadowbrook Elementary",
+  "Hilltop Academy",
+  "Valley View School",
+];
+// * Direct DOM Manipulation:
+const getOutputElement = document.getElementById("schoolsNames");
+for (let i = 0; i < schoolNames.length; i++) {
+  const liElement = document.createElement("li");
+  liElement.textContent = schoolNames[i];
+  getOutputElement.appendChild(liElement);
+}
+
+// * Generating HTML Content:
+const schoolOutputElement = document.getElementById("displaySchoolNames");
+// Hold the HTML content
+let htmlConent = "";
+for (let i = 0; i < schoolNames.length; i++) {
+  // concatenate each scholl name to html content
+  htmlConent += "<li>" + schoolNames[i] + "</li>";
+}
+schoolOutputElement.innerHTML = "<ul>" + htmlConent + "</ul>";
+
+const teluguMovieHeroes = [
+  "Mahesh Babu",
+  "Allu Arjun",
+  "Prabhas",
+  "Jr. NTR",
+  "Ram Charan",
+  "Nani",
+  "Vijay Deverakonda",
+  "Pawan Kalyan",
+  "Naga Chaitanya",
+  "Ravi Teja",
+];
+
+// Task 1: Display hero names using direct DOM manipulation with a for loop
+const outputDisplayHeroNames = document.getElementById("displayHeroNames");
+const ulElement = document.createElement("ul");
+for (let i = 0; i < teluguMovieHeroes.length; i++) {
+  const liElement = document.createElement("li");
+  liElement.textContent = teluguMovieHeroes[i];
+  ulElement.appendChild(liElement);
+}
+outputDisplayHeroNames.appendChild(ulElement);// Task 2: Display hero names using forEach method
+const outputDisplayHeroNames2 = document.getElementById("displayHeroNames2");
+const ulElement2 = document.createElement("ul");
+teluguMovieHeroes.forEach((hero) => {
+const liElement = document.createElement("li");
+liElement.textContent = hero;
+ulElement2.appendChild(liElement);
+});
+outputDisplayHeroNames2.appendChild(ulElement2);
+
+/* --> for loop
+1. The for loop requires you to specify the initialization, condition, and increment/decrement steps explicitly.
+2. It is more flexible and can be used for iterating over arrays, strings, or any iterable objects.
+3. Allows you to break or continue the loop based on certain conditions.
+Commonly used when you need more control over the iteration process, such as iterating over a subset of array elements
+or iterating in reverse.
+*/
+
+/* --> for each
+1. The forEach method is a higher-order function available on arrays.
+2. It takes a callback function as an argument and executes that function once for each element in the array.
+3. It automatically handles the iteration process, so you don't need to specify initialization, condition, or
+increment/decrement steps.
+4. Does not support breaking or continuing the loop. It always iterates over all elements in the array.
+Commonly used for simple iterations where you just need to perform a task on each element of the array.
+*/
+
+/* --> Summary
+In summary, the for loop provides more control and flexibility over the iteration process, while the forEach method
+offers a simpler and more concise way to iterate over array elements. The choice between them depends on your specific
+requirements and coding style.
+*/</code></pre>
+            </div>
           </div>
         </div>
       </div>
@@ -140,6 +228,7 @@ console.log("Overall Students " + " " + sectionAStundets);
 
 
     <!-- External Script Files -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src='/js/prism.js'></script>
     <script src="/js/vue.js"></script>
