@@ -62,13 +62,14 @@
           <div class="left-container">
             <div class="accordion eachGroup" id="accordionExample">
               <div class="accordion-item " v-for="(item, index) in topics" :key="index">
-                <h2 class="accordion-header" id="heading{{ index }}">
+                <h2 class="accordion-header" :id="'collapse' + item.id">
                   <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                    :data-bs-target="'#collapse' + index" aria-expanded="true" :aria-controls="'collapse' + index">
+                    :data-bs-target="'#collapse' + item.id" aria-expanded="true" :aria-controls="'#collapse' +
+                    item.id">
                     {{ item.name }}
                   </button>
                 </h2>
-                <div :id="'collapse' + index" class="accordion-collapse collapse" aria-labelledby="heading{{ index }}"
+                <div :id="'collapse' + item.id" class="accordion-collapse collapse" :aria-labelledby="'heading' + index"
                   data-bs-parent="#accordionExample">
                   <div class="accordion-body">
                     <a :href="'index.html#' + itemList.id" v-for="(itemList,index) in item.list" :key="index">
