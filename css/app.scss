@@ -23,96 +23,70 @@ body {
     padding: 20px;
     border-right: 1px solid #989eae;
 
-    .eachGroup {
+    .eachHeading {
       &:not(:last-child) {
-        margin-bottom: 20px;
+        margin-bottom: 1rem;
       }
 
-      h2 {
-        color: #282A36;
-        font-size: 1.5em;
-        font-weight: 500;
+      h5 {
+        font-size: 14px;
+        line-height: 18px;
+        color: #a8b3cf;
+        font-weight: 800;
       }
 
-      a {
-        display: block;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        align-items: center;
-        position: relative;
-        padding: 5px 15px 5px 10px;
-        width: 100%;
-        color: #333;
-        text-decoration: none;
-        font-size: 1rem;
-        font-weight: 500;
+      ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
 
-        &:not(:last-child) {
-          &:after {
-            content: " ";
-            position: absolute;
-            display: inline-block;
-            border-left: 2px solid #000;
-            opacity: .1;
-            height: 20px;
-            left: 17px;
-            top: 25px;
-            z-index: 2;
-          }
-        }
+        li {
+          a {
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            align-items: center;
+            position: relative;
+            padding: 5px 15px 5px 0;
+            width: 100%;
+            color: #a8b3cf;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
 
-        svg {
-          width: 16px;
-          margin-right: 5px;
-        }
-
-        &.completed {
-          svg {
-            path {
-              fill: #04AA6D;
+            &:hover {
+              color: #04AA6D;
             }
+
+            &:not(:last-child) {
+              &:after {
+                content: " ";
+                position: absolute;
+                display: inline-block;
+                border-left: 2px solid #000;
+                opacity: .1;
+                height: 20px;
+                left: 17px;
+                top: 25px;
+                z-index: 2;
+              }
+            }
+
+            svg {
+              width: 16px;
+              margin-right: 5px;
+            }
+
+            &.completed {
+              svg {
+                path {
+                  fill: #04AA6D;
+                }
+              }
+            }
+
           }
-        }
-
-      }
-    }
-
-    #accordionExample {
-      .accordion-item {
-        background: #1c1f26;
-        border: none;
-        color: #fff;
-
-        &:not(:last-child) {
-          margin-bottom: 10px;
-        }
-
-        button {
-          padding: 15px 20px;
-          margin: 0;
-          background: none;
-          border: none;
-          outline: none;
-          box-shadow: none;
-          color: #fff;
-          font-weight: 400;
-
-          &:after {
-            color: #fff;
-            background-image: url("/Images/down-arrow.svg");
-          }
-        }
-      }
-
-      .accordion-body {
-        padding: 15px 5px 0 5px;
-        border: none;
-        max-height: 400px;
-        overflow-y: auto;
-
-        a {
-          color: #fff;
         }
       }
     }
@@ -127,6 +101,8 @@ body {
       position: relative;
       border-radius: 8px !important;
       margin-bottom: 15px;
+      border: 0.2px solid #a8b3cf;
+      box-shadow: 0 6px 6px -2px #00000066;
 
       p {
         color: #fff;
