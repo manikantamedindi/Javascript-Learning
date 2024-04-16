@@ -165,6 +165,13 @@ const App = new Vue({
             name: "Array slice()",
             complete: false,
           },
+        ],
+      },
+      {
+        id: 3,
+        name: "Array search",
+        complete: false,
+        list: [
           {
             id: "array_methods",
             name: "Array indexOf()",
@@ -199,6 +206,196 @@ const App = new Vue({
             id: "array_methods",
             name: "Array findLastIndex()",
             complete: false,
+          },
+        ],
+      },
+      {
+        id: 4,
+        name: "Array Sorting",
+        complete: false,
+        list: [
+          {
+            id: "array_methods",
+            name: "Array sort()",
+            complete: false,
+          },
+          {
+            id: "array_methods",
+            name: "Array reverse()",
+            complete: false,
+          },
+          {
+            id: "array_methods",
+            name: "Array toSorted()",
+            complete: false,
+          },
+          {
+            id: "array_methods",
+            name: "Array toReversed()",
+            complete: false,
+          },
+          {
+            id: "array_methods",
+            name: "Sorting Objects",
+            complete: false,
+          },
+          {
+            id: "array_methods",
+            name: "Numeric Sort",
+            complete: false,
+          },
+          {
+            id: "array_methods",
+            name: "Random Sort",
+            complete: false,
+          },
+          {
+            id: "array_methods",
+            name: "Math.min()",
+            complete: false,
+          },
+          {
+            id: "array_methods",
+            name: "Math.max()",
+            complete: false,
+          },
+          {
+            id: "array_methods",
+            name: "Home made Min()",
+            complete: false,
+          },
+          {
+            id: "array_methods",
+            name: "Home made Max()",
+            complete: false,
+          },
+        ],
+      },
+      {
+        id: 5,
+        name: "Array Iteration Methods",
+        complete: false,
+        list: [
+          {
+            id: "array_methods",
+            name: "Array forEach",
+            complete: false,
+          },
+          {
+            id: "array_methods",
+            name: "Array map()",
+            complete: false,
+          },
+          {
+            id: "array_methods",
+            name: "Array flatMap()",
+            complete: false,
+          },
+          {
+            id: "array_methods",
+            name: "Array filter()",
+            complete: false,
+          },
+          {
+            id: "array_methods",
+            name: "Array reduce()",
+            complete: false,
+          },
+          {
+            id: "array_methods",
+            name: "Array reduceRight()",
+            complete: false,
+          },
+          {
+            id: "array_methods",
+            name: "Array every()",
+            complete: false,
+          },
+          {
+            id: "array_methods",
+            name: "Array some()",
+            complete: false,
+          },
+          {
+            id: "array_methods",
+            name: "Array from()",
+            complete: false,
+          },
+          {
+            id: "array_methods",
+            name: "Array keys()",
+            complete: false,
+          },
+          {
+            id: "array_methods",
+            name: "Array entries()",
+            complete: false,
+          },
+          {
+            id: "array_methods",
+            name: "Array with()",
+            complete: false,
+          },
+          {
+            id: "array_methods",
+            name: "Array Spread (...)",
+            complete: false,
+          },
+        ],
+      },
+      {
+        id: 6,
+        name: "Array Const",
+        list: [
+          {
+            id: 1,
+            name: "Const Arrays",
+          },
+        ],
+      },
+      {
+        id: 7,
+        name: "Javascript Objects",
+        list: [
+          {
+            id: 1,
+            name: "Object Defination",
+          },
+          {
+            id: 1,
+            name: "Object Properties",
+          },
+          {
+            id: 1,
+            name: "Object Display",
+          },
+          {
+            id: 1,
+            name: "Object Accessors",
+          },
+          {
+            id: 1,
+            name: "Object Constructors",
+          },
+          {
+            id: 1,
+            name: "Object Prototypes",
+          },
+          {
+            id: 1,
+            name: "Object Iterables",
+          },
+          {
+            id: 1,
+            name: "Object Sets",
+          },
+          {
+            id: 1,
+            name: "Object Maps",
+          },
+          {
+            id: 1,
+            name: "Object Refrences",
           },
         ],
       },
