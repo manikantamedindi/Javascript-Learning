@@ -110,3 +110,42 @@ Commonly used for simple iterations where you just need to perform a task on eac
 /* --> Summary
 In summary, the for loop provides more control and flexibility over the iteration process, while the forEach method offers a simpler and more concise way to iterate over array elements. The choice between them depends on your specific requirements and coding style.
 */
+
+// Adding Array Element
+let listOfFriuts = ["apple", "Orange"];
+listOfFriuts.push("Banana");
+console.log(listOfFriuts);
+
+/* --> Associative Arrays
+Many Programming languages support an array with named indexes.
+Arrays with named indexes are called  Associative Array
+Javascript doesn't support an array with named indexes
+In JavaScript, arrays always use numbered indexes
+*/
+
+// Javascript array to string
+let displayFriutsElement = document.getElementById("friuts");
+displayFriutsElement.innerHTML = listOfFriuts.toString();
+
+// at()
+console.log("Array at() Method" + " " + "->" + " " + listOfFriuts.at(2));
+
+// join()
+console.log("join at() Method" + " " + "->" + " " + listOfFriuts.join(" ** "));
+
+// pop() Remove the last element
+console.log("pop() Method" + " " + "->" + " " + listOfFriuts.pop());
+
+// push()
+listOfFriuts.push("Grape");
+console.log("push() Method" + " " + "->" + " " + listOfFriuts);
+
+// shift() method removes the first element of an array (and "shifts" the other elements to the left):
+listOfFriuts.shift();
+console.log(listOfFriuts);
+
+// The unshift() method adds new elements to the beginning of an array
+listOfFriuts.unshift("Mango");
+console.log(listOfFriuts);
+
+// delete() Using delete() leaves undefined holes in the array. Use pop() or shift() instead.

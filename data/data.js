@@ -52,23 +52,23 @@ const App = new Vue({
           },
           {
             name: "Arrays are Objects",
-            complete: false,
+            complete: true,
           },
           {
             name: "Array Elements Can Be Objects",
-            complete: false,
+            complete: true,
           },
           {
             name: "The length Property",
-            complete: false,
+            complete: true,
           },
           {
             name: "Accessing the First Array Element",
-            complete: false,
+            complete: true,
           },
           {
             name: "Accessing the Last Array Element",
-            complete: false,
+            complete: true,
           },
           {
             id: "array_looping",
@@ -76,102 +76,127 @@ const App = new Vue({
             complete: true,
           },
           {
+            id: "array_methods",
             name: "Adding Array Elements",
-            complete: false,
+            complete: true,
           },
           {
+            id: "array_methods",
             name: "Associative Arrays",
-            complete: false,
+            complete: true,
           },
           {
+            id: "array_methods",
             name: "JavaScript new Array()",
-            complete: false,
+            complete: true,
           },
           {
+            id: "array_methods",
             name: "Array length",
-            complete: false,
+            complete: true,
           },
           {
+            id: "array_methods",
             name: "Array toString()",
-            complete: false,
+            complete: true,
           },
           {
+            id: "array_methods",
             name: "Array at()",
-            complete: false,
+            complete: true,
           },
           {
+            id: "array_methods",
             name: "Array join()",
-            complete: false,
+            complete: true,
           },
           {
+            id: "array_methods",
             name: "Array pop()",
-            complete: false,
+            complete: true,
           },
           {
+            id: "array_methods",
             name: "Array push()",
-            complete: false,
+            complete: true,
           },
           {
+            id: "array_methods",
             name: "Array shift()",
-            complete: false,
+            complete: true,
           },
           {
+            id: "array_methods",
             name: "Array unshift()",
-            complete: false,
+            complete: true,
           },
           {
+            id: "array_methods",
             name: "Array delete()",
-            complete: false,
+            complete: true,
           },
           {
+            id: "array_methods",
             name: "Array concat()",
             complete: false,
           },
           {
+            id: "array_methods",
             name: "Array copyWithin()",
             complete: false,
           },
           {
+            id: "array_methods",
             name: "Array flat()",
             complete: false,
           },
           {
+            id: "array_methods",
             name: "Array splice()",
             complete: false,
           },
           {
+            id: "array_methods",
             name: "Array toSpliced()",
             complete: false,
           },
           {
+            id: "array_methods",
             name: "Array slice()",
             complete: false,
           },
           {
+            id: "array_methods",
             name: "Array indexOf()",
             complete: false,
           },
           {
+            id: "array_methods",
             name: "Array lastIndexOf()",
             complete: false,
           },
           {
+            id: "array_methods",
             name: "Array includes()",
             complete: false,
           },
           {
+            id: "array_methods",
             name: "Array find()",
             complete: false,
           },
           {
+            id: "array_methods",
             name: "Array findIndex()",
             complete: false,
           },
           {
+            id: "array_methods",
             name: "Array findLast()",
             complete: false,
           },
           {
+            id: "array_methods",
             name: "Array findLastIndex()",
             complete: false,
           },
