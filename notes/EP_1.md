@@ -2,7 +2,7 @@
 
 ### Summary
 
-1. How Javascript works
+1. How Javascript workss
    - Everything in javascript happens inside an **Execution context**.
 2. Execution context has two components
    - Memory Component or Variable Environment
